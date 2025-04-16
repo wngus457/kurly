@@ -24,3 +24,13 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "Kurly"
 include(":app")
+include(":shared:core-mvi")
+include(":shared:remote")
+include(":shared:domain")
+include(":shared:data")
+include(":shared:util:kotlin")
+include(":shared:util:android")
+include(":shared:ui:system")
+include(":shared:ui:common")
+include(":shared:navigation")
+include(":shared:local")
