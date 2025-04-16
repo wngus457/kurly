@@ -47,4 +47,6 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     id("android.app.convention") apply false
     id("android.kotlin.convention") apply false
+    id("android.model.convention") apply false
+    id("android.domain.convention") apply false
 }

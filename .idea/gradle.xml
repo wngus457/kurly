@@ -27,6 +27,9 @@
             <option value="$PROJECT_DIR$/build-logic/convention" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/shared/core-mvi" />
+            <option value="$PROJECT_DIR$/shared/data" />
+            <option value="$PROJECT_DIR$/shared/domain" />
+            <option value="$PROJECT_DIR$/shared/remote" />
           </set>
         </option>
       </GradleProjectSettings>

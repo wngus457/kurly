@@ -25,3 +25,6 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Kurly"
 include(":app")
 include(":shared:core-mvi")
+include(":shared:remote")
+include(":shared:domain")
+include(":shared:data")

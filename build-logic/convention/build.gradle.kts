@@ -19,5 +19,13 @@ gradlePlugin {
             id = "android.kotlin.convention"
             implementationClass = "com.juhyeon.kurly.convention.KotlinConventionPlugin"
         }
+        register("ModelPlugin") {
+            id = "android.model.convention"
+            implementationClass = "com.juhyeon.kurly.convention.ModelConventionPlugin"
+        }
+        register("DomainPlugin") {
+            id = "android.domain.convention"
+            implementationClass = "com.juhyeon.kurly.convention.DomainConventionPlugin"
+        }
     }
 }
