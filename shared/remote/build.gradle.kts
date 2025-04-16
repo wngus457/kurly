@@ -7,8 +7,8 @@ android {
 }
 
 dependencies {
-//    implementation(projects.shared.util.android)
-//    implementation(projects.shared.util.kotlin)
+    implementation(projects.shared.util.android)
+    implementation(projects.shared.util.kotlin)
 
     implementation(libs.bundles.retrofit)
 }

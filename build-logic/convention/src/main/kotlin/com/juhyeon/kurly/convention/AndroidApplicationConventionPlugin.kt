@@ -71,6 +71,16 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
                 dependencies {
+                    add("implementation", project(":shared:core-mvi"))
+                    add("implementation", project(":shared:domain"))
+                    add("implementation", project(":shared:data"))
+                    add("implementation", project(":shared:remote"))
+                    add("implementation", project(":shared:local"))
+                    add("implementation", project(":shared:navigation"))
+                    add("implementation", project(":shared:ui:common"))
+                    add("implementation", project(":shared:ui:system"))
+                    add("implementation", project(":shared:util:android"))
+                    add("implementation", project(":shared:util:kotlin"))
 
                     add("implementation", platform(libs.findLibrary("compose-bom").get()))
                     add("implementation", libs.findBundle("compose").get())

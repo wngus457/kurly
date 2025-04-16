@@ -27,5 +27,9 @@ gradlePlugin {
             id = "android.domain.convention"
             implementationClass = "com.juhyeon.kurly.convention.DomainConventionPlugin"
         }
+        register("LibraryPlugin") {
+            id = "android.library.convention"
+            implementationClass = "com.juhyeon.kurly.convention.SharedLibraryConventionPlugin"
+        }
     }
 }

@@ -49,4 +49,5 @@ plugins {
     id("android.kotlin.convention") apply false
     id("android.model.convention") apply false
     id("android.domain.convention") apply false
+    id("android.library.convention") apply false
 }

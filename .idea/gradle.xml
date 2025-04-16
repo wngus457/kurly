@@ -29,7 +29,15 @@
             <option value="$PROJECT_DIR$/shared/core-mvi" />
             <option value="$PROJECT_DIR$/shared/data" />
             <option value="$PROJECT_DIR$/shared/domain" />
+            <option value="$PROJECT_DIR$/shared/local" />
+            <option value="$PROJECT_DIR$/shared/navigation" />
             <option value="$PROJECT_DIR$/shared/remote" />
+            <option value="$PROJECT_DIR$/shared/ui" />
+            <option value="$PROJECT_DIR$/shared/ui/common" />
+            <option value="$PROJECT_DIR$/shared/ui/system" />
+            <option value="$PROJECT_DIR$/shared/util" />
+            <option value="$PROJECT_DIR$/shared/util/android" />
+            <option value="$PROJECT_DIR$/shared/util/kotlin" />
           </set>
         </option>
       </GradleProjectSettings>
