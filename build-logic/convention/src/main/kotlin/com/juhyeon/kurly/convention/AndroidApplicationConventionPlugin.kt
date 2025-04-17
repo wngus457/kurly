@@ -71,6 +71,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
                 dependencies {
+                    add("implementation", project(":mockserver"))
                     add("implementation", project(":shared:core-mvi"))
                     add("implementation", project(":shared:domain"))
                     add("implementation", project(":shared:data"))
