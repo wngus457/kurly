@@ -31,5 +31,9 @@ gradlePlugin {
             id = "android.library.convention"
             implementationClass = "com.juhyeon.kurly.convention.SharedLibraryConventionPlugin"
         }
+        register("FeaturePlugin") {
+            id = "android.feature.convention"
+            implementationClass = "com.juhyeon.kurly.convention.FeatureConventionPlugin"
+        }
     }
 }

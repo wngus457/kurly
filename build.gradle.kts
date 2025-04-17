@@ -50,4 +50,5 @@ plugins {
     id("android.model.convention") apply false
     id("android.domain.convention") apply false
     id("android.library.convention") apply false
+    id("android.feature.convention") apply false
 }
