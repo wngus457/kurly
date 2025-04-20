@@ -6,6 +6,7 @@ import com.juhyeon.kurly.shared.domain.data
 import com.juhyeon.kurly.shared.domain.feature.home.product.usecase.GetSectionProductListUseCase
 import com.juhyeon.kurly.shared.domain.feature.home.section.usecase.GetSectionListUseCase
 import com.juhyeon.kurly.shared.domain.onSuccess
+import com.juhyeon.kurly.shared.ui.presenters.product.ProductItemUiModelMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flatMapMerge
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getSectionListUseCase: GetSectionListUseCase,
-    private val getSectionProductListUseCase: GetSectionProductListUseCase
+    private val getSectionProductListUseCase: GetSectionProductListUseCase,
+    private val productItemUiModelMapper: ProductItemUiModelMapper
 ) : BaseViewModel<HomeContract.Event, HomeContract.State, HomeContract.Effect>() {
     override fun initState() = HomeContract.State(
         sections = emptySet()
@@ -37,7 +39,7 @@ class HomeViewModel @Inject constructor(
                             .map { productList ->
                                 SectionUiModel(
                                     section = section,
-                                    productList = productList.data ?: emptyList()
+                                    productList = productList.data?.map { productItemUiModelMapper.toUiModel(it) } ?: emptyList()
                                 )
                             }
                     }

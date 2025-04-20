@@ -12,6 +12,7 @@ dependencies {
     implementation(projects.shared.util.android)
     implementation(projects.shared.navigation)
     implementation(projects.shared.ui.common)
+    implementation(projects.shared.ui.presenters)
 
     implementation(libs.compose.navigation)
 

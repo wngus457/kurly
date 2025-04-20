@@ -5,6 +5,7 @@ import com.juhyeon.kurly.shared.core.mvi.UiEvent
 import com.juhyeon.kurly.shared.core.mvi.UiState
 import com.juhyeon.kurly.shared.domain.feature.home.product.ProductItem
 import com.juhyeon.kurly.shared.domain.feature.home.section.SectionList
+import com.juhyeon.kurly.shared.ui.presenters.product.ProductItemUiModel
 import okhttp3.internal.connection.RouteSelector
 
 interface HomeContract {
@@ -22,5 +23,5 @@ interface HomeContract {
 
 data class SectionUiModel(
     val section: SectionList.Section,
-    val productList: List<ProductItem>
+    val productList: List<ProductItemUiModel>
 )
