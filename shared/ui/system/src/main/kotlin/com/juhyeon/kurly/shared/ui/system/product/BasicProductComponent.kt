@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextDecoration
@@ -28,6 +30,7 @@ import com.juhyeon.kurly.shared.ui.system.icon.CommonHeartOn
 import com.juhyeon.kurly.shared.ui.system.theme.Black800
 import com.juhyeon.kurly.shared.ui.system.theme.Gray550
 import com.juhyeon.kurly.shared.ui.system.theme.Red450
+import com.juhyeon.kurly.shared.ui.system.theme.bold
 import com.juhyeon.kurly.shared.ui.system.theme.medium
 import com.juhyeon.kurly.shared.ui.system.theme.normal
 import com.juhyeon.kurly.shared.ui.system.theme.semiBold
@@ -50,7 +53,7 @@ fun BasicProductComponent(
         verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         ProductImage(
-            imageUrl = { item.image },
+            imageUrl = item.image,
             type = type,
             bookmark = bookmark
         )
@@ -73,7 +76,7 @@ fun BasicProductComponent(
 @Composable
 private fun ProductImage(
     type: ProductViewType,
-    imageUrl: () -> String,
+    imageUrl: String,
     bookmark: ProductBookmark
 ) {
     val height = when (type) {
@@ -82,12 +85,14 @@ private fun ProductImage(
     }
 
     Box(
-        modifier = Modifier
-            .then(height)
+        modifier = Modifier.then(height)
     ) {
         AsyncImage(
+            modifier = Modifier
+                .then(height)
+                .clip(RoundedCornerShape(8.dp)),
             model = imageUrl,
-            contentScale = ContentScale.Fit,
+            contentScale = if (type == ProductViewType.Normal) ContentScale.FillBounds else ContentScale.Crop,
             contentDescription = "goods image"
         )
 
@@ -119,7 +124,7 @@ private fun ProductPrice(
                 )
                 Text(
                     text = "${discount.applyCommaFormat()}원",
-                    style = MaterialTheme.typography.semiBold(14),
+                    style = MaterialTheme.typography.bold(14),
                     color = Black800
                 )
             }
