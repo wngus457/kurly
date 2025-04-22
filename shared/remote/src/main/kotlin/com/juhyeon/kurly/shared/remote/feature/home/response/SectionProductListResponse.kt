@@ -4,6 +4,6 @@ import com.juhyeon.kurly.shared.remote.feature.home.response.product.ProductItem
 import com.squareup.moshi.Json
 
 data class SectionProductListResponse(
-    @Json(name= "data")
+    @Json(name = "data")
     val productList: List<ProductItemResponse>
 )
