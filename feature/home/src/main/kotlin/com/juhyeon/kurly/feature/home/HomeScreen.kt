@@ -137,7 +137,7 @@ private fun HomeContents(
                 modifier = Modifier.padding(it)
             ) {
                 BasicTopNavigationBar(
-                    title = TopNavigationTitle.On("컬리 테스트")
+                    title = TopNavigationTitle.On("컬리 과제")
                 )
                 when (state) {
                     is HomeContract.State.HomeUiState.Loading -> { HomeShimmerComponent() }
