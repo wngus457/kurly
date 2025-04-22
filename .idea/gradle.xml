@@ -37,6 +37,7 @@
             <option value="$PROJECT_DIR$/shared/remote" />
             <option value="$PROJECT_DIR$/shared/ui" />
             <option value="$PROJECT_DIR$/shared/ui/common" />
+            <option value="$PROJECT_DIR$/shared/ui/presenters" />
             <option value="$PROJECT_DIR$/shared/ui/system" />
             <option value="$PROJECT_DIR$/shared/util" />
             <option value="$PROJECT_DIR$/shared/util/android" />

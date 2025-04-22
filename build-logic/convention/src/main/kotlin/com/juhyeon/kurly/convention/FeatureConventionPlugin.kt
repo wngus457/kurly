@@ -71,6 +71,7 @@ class FeatureConventionPlugin : Plugin<Project> {
                     add("implementation", project(":shared:navigation"))
                     add("implementation", project(":shared:ui:common"))
                     add("implementation", project(":shared:ui:system"))
+                    add("implementation", project(":shared:ui:presenters"))
                     add("implementation", project(":shared:util:android"))
                     add("implementation", project(":shared:util:kotlin"))
 
