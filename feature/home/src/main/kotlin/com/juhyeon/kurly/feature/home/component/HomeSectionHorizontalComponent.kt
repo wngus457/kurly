@@ -22,7 +22,9 @@ import com.juhyeon.kurly.shared.ui.system.product.ProductViewType
 
 @Composable
 internal fun LazyItemScope.HomeSectionHorizontalComponent(
-    section: SectionUiModel
+    section: SectionUiModel,
+    bookmarkList: Set<Int>,
+    onBookmarkClick: (Int, Boolean) -> Unit
 ) {
     HomeSectionScaffold(
         title = section.section.title,
@@ -41,7 +43,8 @@ internal fun LazyItemScope.HomeSectionHorizontalComponent(
                     BasicProductComponent(
                         type = ProductViewType.Normal,
                         item = product,
-                        bookmark = ProductBookmark.Bookmarked
+                        bookmark = if (bookmarkList.contains(product.id)) ProductBookmark.Bookmarked else ProductBookmark.NotBookmarked,
+                        onBookmarkClick = { isBookmarked -> onBookmarkClick(product.id, isBookmarked) }
                     )
                 }
             }
@@ -78,7 +81,9 @@ private fun HomeSectionHorizontalComponentPreview() {
                         url = ""
                     ),
                     productList = list
-                )
+                ),
+                bookmarkList = setOf(),
+                onBookmarkClick = { _, _ -> }
             )
         }
     }

@@ -15,7 +15,7 @@ import com.juhyeon.kurly.shared.ui.system.theme.bold
 @Composable
 internal fun HomeSectionScaffold(
     title: String,
-    content : @Composable () -> Unit
+    content: @Composable () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxWidth(),

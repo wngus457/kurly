@@ -24,6 +24,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.juhyeon.kurly.shared.ui.common.extension.clickableSingleIgnoreInteraction
 import com.juhyeon.kurly.shared.ui.presenters.product.ProductItemUiModel
 import com.juhyeon.kurly.shared.ui.system.icon.CommonHeartOff
 import com.juhyeon.kurly.shared.ui.system.icon.CommonHeartOn
@@ -41,7 +42,8 @@ import com.juhyeon.kurly.shared.util.kotlin.extension.toSalePercent
 fun BasicProductComponent(
     type: ProductViewType,
     item: ProductItemUiModel,
-    bookmark: ProductBookmark = ProductBookmark.NotBookmarked
+    bookmark: ProductBookmark = ProductBookmark.NotBookmarked,
+    onBookmarkClick: (Boolean) -> Unit
 ) {
     val width = when (type) {
         ProductViewType.Normal -> Modifier.width(150.dp)
@@ -55,7 +57,8 @@ fun BasicProductComponent(
         ProductImage(
             imageUrl = item.image,
             type = type,
-            bookmark = bookmark
+            bookmark = bookmark,
+            onBookmarkClick = onBookmarkClick
         )
 
         Text(
@@ -77,7 +80,8 @@ fun BasicProductComponent(
 private fun ProductImage(
     type: ProductViewType,
     imageUrl: String,
-    bookmark: ProductBookmark
+    bookmark: ProductBookmark,
+    onBookmarkClick: (Boolean) -> Unit
 ) {
     val height = when (type) {
         ProductViewType.Normal -> Modifier.height(200.dp)
@@ -97,7 +101,9 @@ private fun ProductImage(
         )
 
         Image(
-            modifier = Modifier.align(Alignment.TopEnd),
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .clickableSingleIgnoreInteraction { onBookmarkClick(bookmark is ProductBookmark.NotBookmarked) },
             painter = painterResource(if (bookmark is ProductBookmark.Bookmarked) CommonHeartOn else CommonHeartOff),
             contentDescription = ""
         )
@@ -175,7 +181,8 @@ private fun BasicProductComponentPreview() {
                     ),
                     isSoldOut = false
                 ),
-                bookmark = ProductBookmark.Bookmarked
+                bookmark = ProductBookmark.Bookmarked,
+                onBookmarkClick = { }
             )
             BasicProductComponent(
                 type = ProductViewType.Normal,
@@ -188,7 +195,8 @@ private fun BasicProductComponentPreview() {
                         discountedPrice = null
                     ),
                     isSoldOut = false
-                )
+                ),
+                onBookmarkClick = { }
             )
         }
         BasicProductComponent(
@@ -202,7 +210,8 @@ private fun BasicProductComponentPreview() {
                     discountedPrice = 8000
                 ),
                 isSoldOut = false
-            )
+            ),
+            onBookmarkClick = { }
         )
     }
 }
